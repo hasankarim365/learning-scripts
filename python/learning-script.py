@@ -541,3 +541,119 @@
 
 #  - LEGB rule - Local, Enclosed, Global, Built-in
 
+# def func1():
+#     a = 1 # local variable (only works within the function)
+#     global b # the global keyword changes the local variable to a global variable
+#     b = 32
+#     print(a * b)
+
+#     def func2():
+#         #a = 2   #as "a" is hashed out, func2 will use the enclosed version of "a" which is 1
+#         print(a * x)
+#     func2()
+    
+
+# x = 3 # global variable as it is not enclosed within a function, so can be called anywhere
+# func1()
+# print(b) #the global keyword only works after the function has been called
+
+# from math import e
+
+# def func3():
+#     print(e) # Built-in variable
+
+# e = 5 #If we look at the LEGB rule, global is before built in so "e = 3" is invoked
+# func3()
+
+
+#                   Number 32 (Dunder Name)
+
+
+# def main():
+#     print("lorem ipsum dolet sit amet")
+
+# if __name__ == "__main__": # means execute this code if this .py script is being run directly, as opposed to being imported to another file
+#     main()
+
+
+#                   Number 33 (Object Oriented Programming)
+
+
+# Object oriented programming is when you program on object passed on its related attributes (variables) and methods (functions)
+# class = (blueprint) used to design the structure and layout of an object
+
+# class Car: # for better organisations you can cut the class onto another file, then import the file, (from "file" import Car)
+#     def __init__(self, model, year,colour, for_sale): # this method is needed to create objects and works similar to a function
+#         #self means this object we are currently working with (car1, car2, car3)
+#         self.model = model
+#         self.year = year
+#         self.colour = colour
+#         self.for_sale = for_sale
+    
+#     def drive(self): #This method is identical to all methods
+#         print(f"Drive the {self.colour} {self.model}")
+
+#     def stop(self):
+#         print(f"Stop the {self.colour} {self.model}")
+
+#     def describe(self):
+#         print(f"{self.year} {self.colour} {self.model}")
+
+# car1 = Car("Supra", 2019, "red", False) # as self is already provided we only need 4 arguments
+# car2 = Car("Honda", 2023, "blue", True)
+# car3 = Car("Mustang", 2025, "black", False)
+
+# print(car1) # this gives us the memory location of the class
+# print(car1.model) # you need to access one of the attributes in order to print it
+# print(car1.year)
+# print(car1.colour)
+# print(car1.for_sale)
+
+# print(car2.model)
+# print(car2.year)
+# print(car2.colour)
+# print(car2.for_sale)
+
+# print(car3.model)
+# print(car3.year)
+# print(car3.colour)
+# print(car3.for_sale)
+
+# car1.drive()
+# car2.stop()
+# car3.describe()
+
+
+#                   Number 34 (Class Variables)
+
+# class variables = allow you to share data amongst all objects created from that class
+
+class Student:
+
+    class_year = 2026
+    num_students = 0
+
+    def __init__(self, name, age):
+        self.name = name #this is an instance variables
+        self.age = age
+        Student.num_students += 1
+
+student1 = Student("John", 16)
+student2 = Student("Doe", 17)
+
+print(student1.name)
+print(student1.age)
+
+print(student2.name)
+print(student2.age)
+
+print(student1.class_year) # can access class variables from any object
+print(student2.class_year)
+print(Student.class_year) # but it is good practice to access them from the class to avoid any confusion
+
+print(Student.num_students)
+student3 = Student("Ed", 16)
+
+print(Student.num_students)
+print(f"In the {Student.class_year} graduating year, there are {Student.num_students} students")
+
