@@ -1,8 +1,8 @@
 fruits = ["Apples", "Bananas", "Orange"] # List
 print(fruits[2]) # Print fruits index 2 / Orange
 
-print(dir(fruits))
-print(help(fruits)) # list methods
+# print(dir(fruits))
+# print(help(fruits)) # list methods
 
 print("Apple" in fruits) # Returns True
 
