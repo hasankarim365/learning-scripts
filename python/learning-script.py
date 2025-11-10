@@ -67,7 +67,7 @@
 # num = num % 2 # remainder or MOD
 # print(num) # 0
 
-
+    
 #                   Number 7 (Maths functions)
 
 
