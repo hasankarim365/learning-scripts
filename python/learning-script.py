@@ -747,78 +747,370 @@
 
 #                   Number 37 (Multilevel Inheritence)
 
-class animal():
-    def __init__(self, name):
-        self.name = name
-    def eat(self):
-        print(f"{self.name} is eating")
+# class animal():
+#     def __init__(self, name):
+#         self.name = name
+#     def eat(self):
+#         print(f"{self.name} is eating")
 
-class Prey(animal):
-    def flee(self):
-        print(f"{self.name} is fleeing")
+# class Prey(animal):
+#     def flee(self):
+#         print(f"{self.name} is fleeing")
 
-class Predator(animal):
-    def hunt(self):
-        print(f"{self.name} is hunting")
+# class Predator(animal):
+#     def hunt(self):
+#         print(f"{self.name} is hunting")
 
-class Rabbit(Prey): # This is multilevel inheritence, which is where when a children class inherits from another children class
-    pass
+# class Rabbit(Prey): # This is multilevel inheritence, which is where when a children class inherits from another children class
+#     pass
 
-class Hawk(Predator):
-    pass
+# class Hawk(Predator):
+#     pass
 
-class Fish(Prey, Predator):
-    pass
+# class Fish(Prey, Predator):
+#     pass
 
-rabbit = Rabbit("Hops")
-hawk = Hawk("Tony")
-fish = Fish("Guppy")
+# rabbit = Rabbit("Hops")
+# hawk = Hawk("Tony")
+# fish = Fish("Guppy")
 
-fish.eat()
-rabbit.eat()
-hawk.eat()
+# fish.eat()
+# rabbit.eat()
+# hawk.eat()
 
 
 #                   Number 38 (Super function)
  
-class shapes:
-    def __init__(self, colour, filled):
-        self.colour = colour
-        self.filled = filled
+# class shapes:
+#     def __init__(self, colour, filled):
+#         self.colour = colour
+#         self.filled = filled
 
-class Circle(shapes):
-    def __init__(self, colour, filled, radius):
-        super().__init__(colour, filled)
-        self.radius = radius
+# class Circle(shapes):
+#     def __init__(self, colour, filled, radius):
+#         super().__init__(colour, filled)
+#         self.radius = radius
 
-class Square(shapes):
-    def __init__(self, colour, filled, width):
-        super().__init__(colour, filled)
-        self.width = width
+# class Square(shapes):
+#     def __init__(self, colour, filled, width):
+#         super().__init__(colour, filled)
+#         self.width = width
 
-class Triangle(shapes):
-    def __init__(self, colour, filled, width, height):
-        super().__init__(colour, filled) # This is the super function, which is a function used in a child class to call methods from a parent class, which is called a superclass.
-        #It allows you to extend the functionalit of the inherited methods
-        self.width = width
-        self.height = height
+# class Triangle(shapes):
+#     def __init__(self, colour, filled, width, height):
+#         super().__init__(colour, filled) # This is the super function, which is a function used in a child class to call methods from a parent class, which is called a superclass.
+#         #It allows you to extend the functionalit of the inherited methods
+#         self.width = width
+#         self.height = height
 
-circle = Circle("black", "filled", "5")
-square = Square(colour = "red", filled = "Not filled", width = "3")
-triangle = Triangle(colour = "blue", filled = "Not filled", width = "5", height= "6")
+# circle = Circle("black", "filled", "5")
+# square = Square(colour = "red", filled = "Not filled", width = "3")
+# triangle = Triangle(colour = "blue", filled = "Not filled", width = "5", height= "6")
 
-print(circle.colour)
-print(circle.filled)
-print(circle.radius)
+# print(circle.colour)
+# print(circle.filled)
+# print(circle.radius)
 
-print(square.colour)
-print(square.filled)
-print(square.width)
+# print(square.colour)
+# print(square.filled)
+# print(square.width)
 
-print(triangle.colour)
-print(triangle.filled)
-print(triangle.width)
-print(triangle.height)
+# print(triangle.colour)
+# print(triangle.filled)
+# print(triangle.width)
+# print(triangle.height)
 
 
-#                   Number 39 ()
+#                   Number 39 (Polymorphism - inheritence)
+
+# from abc import ABC, abstractmethod
+
+# class Shape():
+#     @abstractmethod
+#     def __init__(self):
+#         pass
+
+# class Circle(Shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def area(self):
+#         return 3.14 * self.radius ** 2
+
+
+# class Square(Shape):
+#     def __init__(self, side):
+#         self.side = side
+
+#     def area(self):
+#         return self.side ** 2
+
+# class Triangle(Shape):
+#     def __init__(self, base, height):
+#         self.base = base
+#         self.height = height
+ 
+#     def area(self):
+#         return self.base * self.height / 2
+
+
+# shapes = [Circle(4), Square(5), Triangle(6, 7)]
+
+# for shape in shapes:
+#     print(f"{shapes.area()}cm squared")
+
+
+#                   Number 40 (Static and Instance methods)
+
+# class Employee:
+#     def __init__(self, name, position):
+#         self.name = name
+#         self.position = position
+
+#     def get_info(self): # This is an instance method
+#         return f"{self.name} = {self.position}"
+
+#     @staticmethod
+#     def is_valid_position(position): # This is a static method
+#         valid_position = ["manager", "chef", "waiter", "janitor", "cashier"] 
+#         return position in valid_position
+
+# employee1 = Employee("Eugene", "manager")
+# employee2 = Employee("Squidward", "cashier") # In an instance method, an instance of the class needs to be accessed to run the method
+# employee3 = Employee("Eugene", "chef") 
+
+# print(employee1.get_info())
+# print(employee2.get_info())
+# print(employee3.get_info())
+
+# Employee.is_valid_position("chef")
+# Employee.is_valid_position("Trainer") # In a static method, no instances of the class need to be accesed to run the method
+
+
+#                   Number 41 (Class methods)
+
+# class Student:
+
+#     count = 0
+
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+#         Student += 1
+    
+#     def get_info(self):
+#         return f"{self.name} : {self.gpa}"
+    
+#     @classmethod # This is a class method, which is a method that allows operation related the class itself. 
+#     def get_count(cls): # It takes cls as an argument, which represents the class itseld
+#         return f"Total # of student : {cls.count}"
+    
+# student1 = Student("Spongebob", 3.2)
+# student1 = Student("Patrick", 2.0)
+# student1 = Student("Sandy", 4.0)
+
+# print(Student.get_count())
+
+
+#                   Number 42 (Magic methods)
+
+
+# class Student:
+
+#     def __init__(self, name, gpa):
+#         self.name = name
+#         self.gpa = gpa
+
+#     def __str__(self):
+#         return f"name: {self.name} gpa: {self.gpa}"
+
+#     def __eq__(self, other):
+#         return self.name == other.name
+
+#     def __gt__(self, other):
+#         return self.gpa > other.gpa
+
+# student1 = Student("Spongebob", 3.2)
+# student2 = Student("Patrick", 2.0)
+
+# print(student1)
+# print(student1 == student2)
+# print(student1 > student2)
+
+
+#                   Number 43 (Property decorator)
+
+
+# class Rectangle():
+#     def __init__(self, width, height):
+#             self._width = width # _width tells you and other developers that this avriable is meant to be protected, and thta it must only be used internally
+#             self._height = height
+
+#     @property
+#     def width(self):
+#           return f"{self._width:.1f}cm"
+            
+#     @property
+#     def height(self):
+#         return f"{self._height:.1f}cm"
+    
+#     @width.setter
+#     def width(self, new_width):
+#         if new_width > 0:
+#             self._width = new_width
+#         else:
+#             print("Width must be greater than zero")
+
+#     @height.setter
+#     def height(self, new_height):
+#         if new_height > 0:
+#             self._height = new_height
+#         else:
+#             print("Height must be greater than zero")
+
+#     @width.deleter
+#     def width(self):
+#         del self._width
+#         print("Width has been deleted")
+
+#     @height.deleter
+#     def height(self):
+#         del self._height
+#         print("Height has been deleted")
+
+# rectangle = Rectangle(3, 4)
+
+# print(rectangle.height)
+# print(rectangle.width)
+
+# print(rectangle._height) # gives the raw variable without the cm and not to 1f
+# print(rectangle._width)
+
+# rectangle.width = 0
+# rectangle.width = -1
+
+# del rectangle.width
+# del rectangle.height
+
+
+#                   Number 44 (Decorators)
+
+
+# def add_sprinkles(func):
+#     def wrapper(): # without this wrapper function as soon as you run the program, @add sprinkls would run
+#         print("*You add sprinkles*")
+#         func()
+#     return wrapper
+
+
+# @add_sprinkles # Decorators modify the function, without modifying the base code
+# def get_ice_cream():
+#     print("Here is your ice cream")
+
+
+#                   Number 45 (Exception handling)
+
+# try: #any code that could cause an error would be placed within the try block
+#     number = int(input("Enter a number: "))
+#     print(1/number)
+# except  ZeroDivisionError:
+#     print("You cant divide by 0")
+# except ValueError:
+#     print("You cant divide a number by a string")
+# finally:
+#     print("DO something")
+
+
+#                   Number 46 (File Detection)
+
+
+# import os # This module allows python to interact with the Operating System
+
+# filepath = "text.txt"
+
+# if os.path.exists(filepath): # checks if the file exists
+#     print("File found")
+#     if os.path.isfile(filepath): # checks if it is a file
+#         print("It is a file")
+#     elif os.path.isdir(filepath): # checks if it is a directory
+#         print("It is a directory")
+# else:
+#     print("File not found") 
+
+
+#                   Number 47 (Writing Files)
+
+# file_path = "text.txt"
+# with open(file_path, "w") as file: # (with) closes the file after the code is run, ("w") creates a file
+#     file.write("Lorem Ipsum")
+#     print("created")
+
+# with open(file_path, "x") as file: # ("x") creates a file if thefile does not exist
+#     file.write("Lorem Ipsum")
+#     print("created")
+
+# with open(file_path, "a") as file: # ("a") appends the data that is within the file
+#     file.write("Lorem Ipsum")
+#     print("created")
+
+# import json
+# file_path = "text.json"
+
+# with open(file_path, "w") as file:
+#     json.dump("Lorem Ipsum")
+#     print("json created")
+
+# import csv
+# file_path = "text.csv"
+
+# with open(file_path, "w", newline="") as file:
+#     writer = csv.writer(file)
+#     writer.writerow("Lorem Ipsum")
+#     print("csv created")
+
+
+#                   Number 48 (Reading Files)
+
+
+# file_path = "text.txt"
+
+# with open(file_path, "r") as file:
+#     content = file.read()
+#     print(content)
+
+# import json
+# file_path = "text.json"
+
+# with open(file_path, "r") as file:
+#     content = json.load(file)
+#     print(content)
+
+# import csv
+# file_path = "text.csv"
+
+# with open(file_path, "r") as file:
+#     content = csv.reader(file)
+#     print(content)
+
+
+#                   Number 49 (Import datetime)
+
+
+# import datetime
+
+# date = datetime.date(2025, 1 , 27)
+# now = datetime.date.today()
+# print(f"This is a date: {date}. \n  This is the date now: {now}")
+
+# time = datetime.time(9, 5, 0)
+# time_now = datetime.datetime.now()
+
+# print(time)
+# print(time_now)
+
+# now = now.strftime("%d/%m/%Y, %H:%M:%S")
+
+
+#                   Number 49 (Multithreading)
+
+
